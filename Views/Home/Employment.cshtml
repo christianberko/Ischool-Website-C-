@@ -1,0 +1,113 @@
+﻿@model WebApp2.Models.EmploymentModel
+
+@{
+
+
+    ViewData["Title"] = "Employment";
+}
+<body class="body-bg">
+    
+   <h1 style="color:whitesmoke">Employment Information</h1>
+   <h3>@Model.introduction.title</h3>
+   <h4>@Model.degreeStatistics.title</h4>
+   <div class="emp-stats">
+    @foreach (var stat in Model.degreeStatistics.statistics)
+    {
+        <div class="stat-card">
+            <strong><p style="color:orange">@stat.value</p></strong>
+            <p>@stat.description</p>
+        </div>
+    }
+    </div>
+    <br />
+    <h4 style="color:whitesmoke">@Model.employers.title</h4>
+    <div class = "employers">
+        @foreach (var emp in Model.employers.employerNames)
+        {
+            <div class="employer-card">
+                <p>@emp</p>
+             </div>
+        }
+        </div>
+    </div>
+    <br />
+    <h4 style="color:whitesmoke">@Model.careers.title</h4>
+    <div class="employers">
+        @foreach (var career in Model.careers.careerNames)
+        {
+            <div class="employer-card">
+                <p>@career</p>
+            </div>
+        }
+    </div>
+    <br />
+    <h3>Our Employment</h3>
+     <div class="emp-div">
+         
+         <p>@Model.introduction.content.First(c => c.title == "Employment").description</p>
+     </div>
+     <br />
+   
+     <div class ="Table">
+        <table id="myTable" class="display">
+            <thead>
+                <tr>
+                    <th>Employer</th>
+                    <th>Degree</th>
+                    <th>City</th>
+                    <th>Title</th>
+                    <th>Start Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employer in Model.employmentTable.professionalEmploymentInformation)
+                {
+                    <tr>
+                        <td>@employer.employer</td>
+                        <td>@employer.degree</td>
+                        <td>@employer.city</td>
+                        <td>@employer.title</td>
+                        <td>@employer.startDate</td>
+                    </tr>
+                }
+                
+               
+            </tbody>
+        </table>
+    </div>
+    <br />
+    <h3>Cooperative Education</h3>
+    <div class="emp-div">
+
+        <p>@Model.introduction.content.First(c => c.title == "Cooperative Education").description</p>
+    </div>
+        
+
+    <div class="Table">
+        <table id="myTable2" class="display">
+            <thead>
+                <tr>
+                    <th>Employer</th>
+                    <th>Degree</th>
+                    <th>City</th>
+                    <th>Term</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employer in Model.coopTable.coopInformation)
+                {
+                    <tr>
+                        <td>@employer.employer</td>
+                        <td>@employer.degree</td>
+                        <td>@employer.city</td>
+                        <td>@employer.term</td>
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+

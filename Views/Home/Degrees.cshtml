@@ -1,0 +1,74 @@
+﻿@model WebApp2.Models.DegreeModel
+@{
+	ViewData["Title"] = "Degrees";
+
+}
+
+<body class = "body-bg">
+	<h1 style="color:whitesmoke;text-align:center;">Our Degrees</h1>
+	<br/>
+	
+	<h3>Undergraduate</h3>		
+	<div id="accordion">
+		@foreach (var deg in @Model.undergraduate)
+		{
+
+			<h2>@deg.title <span style=" text-transform: uppercase;">(@deg.degreeName)</span></h2>
+			<div>
+				<strong><p>@deg.description</p></strong>
+				<p>Concentrations:</p>
+				
+				@foreach (var con in @deg.concentrations)
+				{
+					<p>@con</p>
+				}
+			</div>
+		}
+	</div>
+	
+
+	<br/>
+	<h3>Graduate</h3>
+	<div id="lol">
+		@foreach (var grad in @Model.graduate)
+		{
+			@if (grad.concentrations != null)
+			{
+				<h2>@grad.title <span style=" text-transform: uppercase;">(@grad.degreeName)</span></h2>
+				<div>
+
+					<strong><p>@grad.description</p></strong>
+					<p>Concentrations:</p>
+					@if (grad.concentrations != null)
+					{
+						@foreach (var con in @grad.concentrations)
+						{
+							<p>@con</p>
+						}
+					}
+
+				</div>
+
+
+			}
+			
+			
+		}
+	</div>
+	<br />
+	<h3>Graduate Advanced Certificates</h3>
+	<div class="cert-div">
+		@foreach (var certificate in @Model.graduate.Where(g => g.availableCertificates != null).SelectMany(g => g.availableCertificates))
+		{
+			<strong>
+				<p>@certificate</p>
+			</strong>
+			
+		}
+		
+	</div>
+
+</body>
+
+
+

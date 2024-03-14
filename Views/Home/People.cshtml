@@ -1,0 +1,91 @@
+﻿@model WebApp2.Models.PeopleModel
+
+@{
+    ViewData["Title"] = "People Page";
+}
+
+
+
+<body class="body-bg">
+    <div class="pepHeader">
+        <h1>@Model.title</h1>
+        <h5>@Model.subTitle</h5>
+    </div>
+    <br />
+
+<div id="tabs">
+    <ul>
+        <li><a href ="#tabs-1">Faculty</a></li>
+        <li><a href = "#tabs-2">Staff</a></li>
+        
+    </ul>
+    <div id="tabs-1">
+        @foreach (var faculty in @Model.faculty)
+        {
+            <div class="person">
+
+                <img src="@faculty.imagePath" alt="pic" />
+                <h3 style="font-size:small">@faculty.name</h3>
+                <h4 style="font-size:small">@faculty.title</h4>
+                <h4 style="font-size:small">@faculty.office</h4>
+                <h4 style="font-size:small">@faculty.phone</h4>
+                <h4 style="font-size:small">@faculty.email</h4>
+                    @if (faculty.website != "")
+                    {
+                        <h4 style="font-size:small"><a href="@faculty.website" target="_blank">Website</a></h4>
+                    }
+
+                    @if (faculty.twitter != "")
+                    {
+                        <h4 style="font-size:small"><a href="@faculty.twitter" target="_blank">Twitter</a></h4>
+                    }
+                   
+
+            </div>
+        }
+
+    </div>
+
+    <div id="tabs-2">
+        @foreach (var staff in Model.staff)
+        {
+            <div class="person">
+                <img src = "@staff.imagePath" alt="pic" />
+                <h3 style="font-size:small">@staff.name</h3>
+                <h4 style="font-size:small">@staff.title</h4>
+                <h4 style="font-size:small">@staff.office</h4>
+                <h4 style="font-size:small">@staff.email</h4>
+                <h4 style="font-size:small">@staff.phone</h4>
+                <h4 stlye ="font-size:small">@staff.interestArea</h4>
+                <h4 style ="font-size:small">@staff.username</h4>
+                @if (staff.website != "" )
+                {
+                    <h4 style="font-size:small"><a href="@staff.website" target="_blank">Website</a></h4>
+                }
+
+                @if(staff.twitter != "" )
+                {
+                    <h4 style="font-size:small">@staff.twitter</h4>
+                }
+
+                @if (staff.facebook != "")
+                {
+                    <h4 style="font-size:small">@staff.facebook</h4>
+                }
+
+
+
+
+
+            </div>
+        }
+    </div>
+
+
+</div>
+
+</body>
+
+
+
+

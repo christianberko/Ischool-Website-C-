@@ -1,0 +1,47 @@
+﻿@model WebApp2.Models.MinorsModel;
+
+
+@{
+    ViewData["Title"] = "Minors";
+}
+
+
+<body class=" body-bg ">
+	<h1 style="color:whitesmoke;text-align:center;">Our Minors</h1>
+	<br />
+	<div id="minors">
+	@foreach(var min in Model.UgMinors)
+	{
+		
+		<div class="minor-container">
+			<div class="desc">
+				<h3>@min.title</h3>
+				<p>@min.description</p>
+					
+					<div class="course-item">
+						@foreach(var course in min.courses)
+						{
+
+							<button class ="course-buttton">@course</button>
+
+							
+
+							
+						
+					
+						}
+					</div>
+					
+			</div>
+		</div>
+		
+	}
+	</div>
+
+	
+
+</body>
+
+
+
+

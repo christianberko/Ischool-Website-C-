@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebApp2</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    
+    <!--Jquery UI-->
+    <link rel="stylesheet" href="~/lib/JQueryUI/jquery-ui.min.css" /> 
+    <link rel="stylesheet" href="~/lib/JQueryUI/jquery-ui.theme.min.css" />
+
+    <!--Table Plugin -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css" />
+
+    <!--Modal Plugin -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+    </head>
+<body>
+    <header>
+        <nav class="navbar">
+            
+            <div class="navDiv">
+                <div class="logo"><h3>Welcome to the <span style="color:orange">i</span>School</h3></div>
+                <ul>
+                        
+                    <li>
+                        <button><a class="" asp-area="" asp-controller="Home" asp-action="About">About</a></button>
+                    </li>
+
+                    <li>
+                        <button><a class="" asp-area="" asp-controller="Home" asp-action="Degrees">Degrees</a></button>
+                    </li>
+
+                    <li>
+                        <button><a class="" asp-area="" asp-controller="Home" asp-action="Minors">Minors</a></button>
+                    </li>
+
+                    <li class="nav-item">
+                        <button></><a class="" asp-area="" asp-controller="Home" asp-action="Employment">Employment</a></button>
+
+                    </li>
+
+                    <li>
+                        <button><a class="" asp-area="" asp-controller="Home" asp-action="People">People</a></button>
+                    </li>
+                        
+
+
+                </ul>
+            </div>
+            
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    
+    
+    <script src ="~/lib/jquery/dist/jquery.min.js"></script>
+    <!--Jquery UI Link-->
+    <script src ="~/lib/JQueryUI/jquery-ui.min.js"></script>
+    <!--Table Plugin-->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <!--Modal Plugin-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
